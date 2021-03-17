@@ -11,13 +11,17 @@
 
 <html>
     <head>
-    <title>To-do List</title>
-        <link rel="stylesheet" href="./styles.css">
+        <title>To-do List</title>
+        <style>
+            <?php include "styles.css" ?>
+        </style>
     </head>
 <body>
-    <form action="./addtask.php" method="POST">
+<div class="maincontainer">
+    <header>MY TO-DO LIST</header>
+    <form class="addtask" action="./addtask.php" method="POST">
         <input type="text" name="inputtask" placeholder="Enter a New Task">
-        <button>ADD TASK</button>
+        <!--<button>ADD TASK</button>-->
     </form>
     <div>
         <?php
@@ -25,8 +29,11 @@
             foreach ($tasksarray as $taskname => $task)
             { ?>
 
-        <div>
-                <input type="checkbox" <?php echo $task['completed'] ? 'checked' : '' ?> >
+        <div class="taskcontainer">
+                <form action="./checkbox.php" method="POST" style="display: inline-block;">
+                    <input type="hidden" name="task_name" value="<?php echo $taskname ?>">
+                    <input type="checkbox" <?php echo $task['completed'] ? 'checked' : '' ?> >
+                </form>
                 <?php echo ($taskname); ?>
                 <form action="./delete.php" method="POST" style="display: inline-block;">
                     <input type="hidden" name="task_name" value="<?php echo $taskname ?>">
@@ -39,5 +46,19 @@
 
         ?>
     </div>
+
+</div>
+
+<script>
+
+    const checkboxes = document.querySelectorAll('input[type=checkbox]');
+    checkboxes.forEach(ch => {
+        ch.onclick = function () {
+            this.parentNode.submit();
+        };
+    })
+
+</script>
+
 </body>
 </html>

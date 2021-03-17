@@ -1,3 +1,7 @@
+body {
+    background-color: aquamarine;
+}
+
 .maincontainer {
     position: absolute;
     left: 25%;
@@ -5,6 +9,16 @@
     margin-top: 20px;
     border: 2px solid black;
     box-shadow: 3px 4px rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+
+.taskcontainer {
+    padding: 2%;
+    border: 1px solid black;
+    margin-bottom: 3%;
+    margin-left: 2%;
+    margin-right: 2%;
+    font-size: 18px;
 }
 
 .maincontainer header{
@@ -18,12 +32,18 @@
 
 .addtask input{
     margin-left: 10%;
-    margin-right: 10%;
+    margin-right: 0%;
     margin-top: 5%;
     margin-bottom: 3%;
-    width: 80%;
+    width: 75%;
     font-size: 25px;
     text-align: center;
+}
+
+.addtask button{
+    display: inline-block;
+    width: 5%;
+    margin-right: 10%;
 }
 
 .content {
